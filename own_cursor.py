@@ -7,13 +7,13 @@ import requests
 load_dotenv()
 
 # Google Gemini
-"""client = OpenAI(
+client = OpenAI(
     api_key=os.getenv("GEMINI_API_KEY"),
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
-)"""
+)
 
 # OpenAI
-client = OpenAI()
+# client = OpenAI()
 
 def run_command(command):
     result = os.system(command=command)
