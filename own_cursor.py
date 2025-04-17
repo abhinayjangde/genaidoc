@@ -7,13 +7,13 @@ import requests
 load_dotenv()
 
 # Google Gemini
-client = OpenAI(
-    api_key=os.getenv("GEMINI_API_KEY"),
-    base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
-)
+# client = OpenAI(
+#     api_key=os.getenv("GEMINI_API_KEY"),
+#     base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
+# )
 
 # OpenAI
-# client = OpenAI()
+client = OpenAI()
 
 def run_command(command):
     result = os.system(command=command)
@@ -89,7 +89,7 @@ while True:
     while True:
 
         response = client.chat.completions.create(
-            model="gemini-2.0-flash",
+            model=os.getenv("MODEL"),
             response_format={"type": "json_object"},
             messages=messages
         )

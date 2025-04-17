@@ -17,4 +17,4 @@ def chat(message:str=Body(...,description="Chat Message")):
             {"role":"user", "content":message}
         ]
     )
-    return response["message"]["content"]
+    return response.message.content
