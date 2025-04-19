@@ -15,9 +15,6 @@ Input: How to write a adding program in python.
 Output: 
 def add(a,b):
     return a + b
-
-
-
 """
 
 response = client.chat.completions.create(
