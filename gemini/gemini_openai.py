@@ -7,7 +7,8 @@ client = OpenAI(
 )
 
 # response
-"""response = client.chat.completions.create(
+"""
+response = client.chat.completions.create(
     model="gemini-2.0-flash",
     n=1,
     messages=[
@@ -19,10 +20,28 @@ client = OpenAI(
     ]
 )
 
-print(response.choices[0].message.content, end="")"""
+print(response.choices[0].message.content, end="")
+"""
 
 # List Models
 
+'''
 models = client.models.list()
 for model in models:
     print(model.id)
+'''
+
+# Streaming
+'''
+response = client.chat.completions.create(
+  model="gemini-2.0-flash",
+  messages=[
+    {"role": "system", "content": "You are a helpful assistant."},
+    {"role": "user", "content": "Hello!"}
+  ],
+  stream=True
+)
+
+for chunk in response:
+    print(chunk.choices[0].delta.content)
+'''
